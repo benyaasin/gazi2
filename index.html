@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gazi Teknik Kombi Servisi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: ""; }
+        .section-padding {
+            scroll-margin-top: 80px;
+        }
+    </style>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#E53E3E',
+                    secondary: '#2D3748'
+                },
+                borderRadius: {
+                    'none': '0px',
+                    'sm': '4px',
+                    DEFAULT: '8px',
+                    'md': '12px',
+                    'lg': '16px',
+                    'xl': '20px',
+                    '2xl': '24px',
+                    '3xl': '32px',
+                    'full': '9999px',
+                    'button': '8px'
+                }
+            }
+        }
+    }
+    </script>
+</head>
+<body class="bg-white min-h-screen">
+    <header class="fixed w-full top-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center">
+                    <h1 class="text-3xl font-['Pacifico'] text-primary">Gazi Teknik</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary">Ana Sayfa</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary">Hizmetlerimiz</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary">Hakkımızda</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary">İletişim</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-2">
+                        <a href="https://wa.me/905001234567" target="_blank" class="flex items-center text-gray-700 hover:text-primary">
+                            <i class="ri-whatsapp-fill text-primary text-xl mr-2"></i>
+                            <span>0500 123 45 67</span>
+                        </a>
+                    </div>
+                    <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-gray-700 hover:text-primary" onclick="toggleMobileMenu()">Ana Sayfa</a>
+                    <a href="#services" class="text-gray-700 hover:text-primary" onclick="toggleMobileMenu()">Hizmetlerimiz</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary" onclick="toggleMobileMenu()">Hakkımızda</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary" onclick="toggleMobileMenu()">İletişim</a>
+                    <a href="https://wa.me/905001234567" target="_blank" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="ri-whatsapp-fill text-primary text-xl mr-2"></i>
+                        <span>0500 123 45 67</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section id="home" class="relative h-[600px] bg-cover bg-center section-padding" style="background-image: url('https://public.readdy.ai/ai/img_res/6589ae730e9aac88a35306f8fdf9ca97.jpg')">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="container mx-auto px-4 h-full">
+                <div class="flex items-center h-full relative">
+                    <div class="text-white max-w-2xl">
+                        <h2 class="text-5xl font-bold mb-6">Profesyonel Kombi Servisi</h2>
+                        <p class="text-xl mb-8">İstanbul'un her bölgesinde 7/24 kombi bakım ve onarım hizmetleri</p>
+                        <div class="flex space-x-4">
+                            <a href="https://wa.me/905001234567" target="_blank" class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 inline-flex items-center">
+                                <i class="ri-whatsapp-fill mr-2"></i>
+                                Hemen Ara
+                            </a>
+                            <button onclick="toggleContactForm()" class="bg-white text-primary px-8 py-3 !rounded-button hover:bg-opacity-90">
+                                Servis Talebi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-primary py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-center text-white">
+                    <a href="https://wa.me/905001234567" target="_blank" class="flex items-center text-white">
+                        <i class="ri-24-hours-line text-2xl mr-2"></i>
+                        <span class="text-xl font-semibold">7/24 Acil Servis: 0500 123 45 67</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section id="services" class="py-16 bg-gray-50 section-padding">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Hizmetlerimiz</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                            <i class="ri-tools-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Kombi Bakımı</h3>
+                        <p class="text-gray-600 mb-6">Düzenli bakım ile kombilerinizin ömrünü uzatın, enerji tasarrufu sağlayın.</p>
+                        <button onclick="openServiceDetails('kombi-bakimi')" class="text-primary hover:text-opacity-80 flex items-center">
+                            Detaylı Bilgi
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                            <i class="ri-settings-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Arıza Tespiti</h3>
+                        <p class="text-gray-600 mb-6">Profesyonel ekibimiz ile hızlı ve doğru arıza tespiti yapıyoruz.</p>
+                        <button onclick="openServiceDetails('ariza-tespiti')" class="text-primary hover:text-opacity-80 flex items-center">
+                            Detaylı Bilgi
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-6">
+                            <i class="ri-install-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4">Kombi Montajı</h3>
+                        <p class="text-gray-600 mb-6">Yeni kombi montajı ve eski kombi değişimi işlemlerinizi yapıyoruz.</p>
+                        <button onclick="openServiceDetails('kombi-montaji')" class="text-primary hover:text-opacity-80 flex items-center">
+                            Detaylı Bilgi
+                            <i class="ri-arrow-right-line ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 section-padding">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-8">Neden Bizi Seçmelisiniz?</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="ri-check-line text-primary text-xl mr-4 mt-1"></i>
+                                <p class="text-gray-700">20 yılı aşkın sektör deneyimi</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="ri-check-line text-primary text-xl mr-4 mt-1"></i>
+                                <p class="text-gray-700">Uzman ve sertifikalı teknisyenler</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="ri-check-line text-primary text-xl mr-4 mt-1"></i>
+                                <p class="text-gray-700">Garantili yedek parça ve işçilik</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="ri-check-line text-primary text-xl mr-4 mt-1"></i>
+                                <p class="text-gray-700">Hızlı ve güvenilir hizmet</p>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="ri-check-line text-primary text-xl mr-4 mt-1"></i>
+                                <p class="text-gray-700">Uygun fiyat garantisi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="https://public.readdy.ai/ai/img_res/da39a2283d2d4914207fe5996a8a189a.jpg" alt="Profesyonel Servis" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container mx-auto px-4 mt-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Konum</h2>
+                <div class="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.7967800313673!2d28.90462157593435!3d41.00581367134084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabae18dcd9d3d%3A0xf2cb99741f4f11d9!2zR8O2a2FscCwgMzkvMy4gU2suIDEzL0EsIDM0MDIwIFpleXRpbmJ1cm51L8Swc3RhbmJ1bCwgVMO8cmtpeWU!5e0!3m2!1str!2s!4v1715452331726!5m2!1str!2s" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <div id="contactForm" class="fixed bottom-4 right-4 z-50">
+            <button onclick="toggleContactForm()" class="bg-primary text-white px-6 py-3 rounded-full shadow-lg hover:bg-opacity-90 flex items-center">
+                <i class="ri-customer-service-2-line mr-2"></i>
+                Hızlı İletişim
+            </button>
+            <div id="formContainer" class="hidden absolute bottom-16 right-0 bg-white rounded-lg shadow-xl p-6 w-80">
+                <h3 class="text-xl font-semibold mb-4">Servis Talebi</h3>
+                <form onsubmit="submitForm(event)" class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Ad Soyad" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div>
+                        <input type="tel" placeholder="Telefon" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
+                    <div>
+                        <textarea placeholder="Adres" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="2" required></textarea>
+                    </div>
+                    <div>
+                        <textarea placeholder="Servis Talebi Açıklaması" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white py-2 !rounded-button hover:bg-opacity-90">
+                        Gönder
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 section-padding">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">İletişim</h4>
+                    <div class="space-y-2">
+                        <p class="flex items-center">
+                            <i class="ri-map-pin-line mr-2"></i>
+                            Gökalp, 39/3. Sk. 13/A, 34020 Zeytinburnu/İstanbul
+                        </p>
+                        <p class="flex items-center">
+                            <a href="https://wa.me/905001234567" target="_blank" class="flex items-center hover:text-primary">
+                                <i class="ri-whatsapp-line mr-2"></i>
+                                0500 123 45 67
+                            </a>
+                        </p>
+                        <p class="flex items-center">
+                            <a href="tel:+905001234567" class="flex items-center hover:text-primary">
+                                <i class="ri-phone-line mr-2"></i>
+                                0500 123 45 67
+                            </a>
+                        </p>
+                        <p class="flex items-center">
+                            <a href="mailto:info@gaziteknik.com" class="flex items-center hover:text-primary">
+                                <i class="ri-mail-line mr-2"></i>
+                                info@gaziteknik.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Hızlı Linkler</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-primary">Ana Sayfa</a></li>
+                        <li><a href="#services" class="hover:text-primary">Hizmetlerimiz</a></li>
+                        <li><a href="#about" class="hover:text-primary">Hakkımızda</a></li>
+                        <li><a href="#contact" class="hover:text-primary">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Çalışma Saatleri</h4>
+                    <div class="space-y-2">
+                        <p>Pazartesi - Cumartesi: 08:00 - 20:00</p>
+                        <p>Pazar: 10:00 - 18:00</p>
+                        <p class="text-primary font-semibold">7/24 Acil Servis Hizmeti</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p>&copy; 2023 Gazi Teknik Kombi Servisi. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Details Modal -->
+    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-2xl mx-4 w-full max-h-[80vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-900"></h3>
+                    <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="ri-close-line text-2xl"></i>
+                    </button>
+                </div>
+                <div id="modalContent" class="prose max-w-none"></div>
+                <div class="mt-6 flex justify-end">
+                    <a href="https://wa.me/905001234567" target="_blank" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90 inline-flex items-center">
+                        <i class="ri-whatsapp-fill mr-2"></i>
+                        Hemen İletişime Geç
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleContactForm() {
+            const form = document.getElementById('formContainer');
+            form.classList.toggle('hidden');
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const formContainer = document.getElementById('formContainer');
+            formContainer.innerHTML = `
+                <div class="text-center py-8">
+                    <i class="ri-check-line text-primary text-4xl mb-4"></i>
+                    <p class="text-gray-700">Talebiniz başarıyla alınmıştır. En kısa sürede size dönüş yapacağız.</p>
+                </div>
+            `;
+            setTimeout(() => {
+                formContainer.classList.add('hidden');
+                formContainer.innerHTML = document.getElementById('formBackup').innerHTML;
+            }, 3000);
+        }
+
+        // Service details modal functions
+        function openServiceDetails(serviceId) {
+            const modal = document.getElementById('serviceModal');
+            const title = document.getElementById('modalTitle');
+            const content = document.getElementById('modalContent');
+            
+            // Set content based on service ID
+            if (serviceId === 'kombi-bakimi') {
+                title.textContent = 'Kombi Bakımı';
+                content.innerHTML = `
+                    <p>Düzenli kombi bakımı, cihazınızın ömrünü uzatır ve enerji tasarrufuna katkıda bulunur. Bakım hizmetimiz şunları içerir:</p>
+                    <ul>
+                        <li>Kombi iç temizliği</li>
+                        <li>Filtre kontrolü ve temizliği</li>
+                        <li>Yanma odasının temizliği</li>
+                        <li>Baca gazı analizi</li>
+                        <li>Pompa kontrolü</li>
+                        <li>Basınç kontrolü</li>
+                        <li>Genel kontroller ve ayarlamalar</li>
+                    </ul>
+                    <p>Yılda en az bir kez kombi bakımı yaptırmanızı öneririz, idealinde kış sezonundan önce.</p>
+                `;
+            } else if (serviceId === 'ariza-tespiti') {
+                title.textContent = 'Arıza Tespiti';
+                content.innerHTML = `
+                    <p>Uzman teknisyenlerimiz, kombinizdeki arızaları hızlı ve doğru şekilde tespit edebilir. Arıza tespiti hizmetimiz:</p>
+                    <ul>
+                        <li>Elektronik kart arızaları</li>
+                        <li>Sensör problemleri</li>
+                        <li>Su kaçakları</li>
+                        <li>Isıtma problemleri</li>
+                        <li>Sıcak su sorunları</li>
+                        <li>Basınç ve genleşme tankı sorunları</li>
+                        <li>Hata kodlarının analizini</li>
+                    </ul>
+                    <p>Tespit edilen arızalar için hızlı çözüm önerileri ve uygun fiyatlı onarım hizmetleri sunuyoruz.</p>
+                `;
+            } else if (serviceId === 'kombi-montaji') {
+                title.textContent = 'Kombi Montajı';
+                content.innerHTML = `
+                    <p>Yeni kombi montajı veya eski kombinizin değişimi için profesyonel hizmet sunuyoruz:</p>
+                    <ul>
+                        <li>Kombi montajı öncesi keşif</li>
+                        <li>Doğru kombi seçimi konusunda danışmanlık</li>
+                        <li>Eski kombinin sökülmesi</li>
+                        <li>Yeni kombi montajı</li>
+                        <li>Baca ve tesisat bağlantıları</li>
+                        <li>Gaz hattı kontrolü ve bağlantısı</li>
+                        <li>Test ve devreye alma</li>
+                        <li>Kullanım eğitimi</li>
+                    </ul>
+                    <p>Tüm marka ve model kombilerin montajını yapmaktayız.</p>
+                `;
+            }
+            
+            modal.classList.remove('hidden');
+            // Prevent scrolling on body when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.classList.add('hidden');
+            // Restore scrolling
+            document.body.style.overflow = '';
+        }
+
+        // Create a backup of the form for resetting after submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const formBackup = document.createElement('div');
+            formBackup.id = 'formBackup';
+            formBackup.style.display = 'none';
+            formBackup.innerHTML = document.getElementById('formContainer').innerHTML;
+            document.body.appendChild(formBackup);
+
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('serviceModal');
+                if (event.target === modal) {
+                    closeServiceModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
