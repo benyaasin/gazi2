@@ -339,6 +339,15 @@
         function toggleContactForm() {
             const form = document.getElementById('formContainer');
             form.classList.toggle('hidden');
+            
+            // Form açıldığında 5 saniyelik zamanlayıcıyı başlat
+            if (!form.classList.contains('hidden')) {
+                setTimeout(() => {
+                    if (!form.classList.contains('hidden')) {
+                        form.classList.add('hidden');
+                    }
+                }, 5000); // 5 saniye
+            }
         }
 
         function submitForm(event) {
@@ -363,7 +372,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // WhatsApp'a yönlendir
-            window.open(`https://wa.me/905441809114?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/05325641581?text=${encodedMessage}`, '_blank');
             
             // Başarı mesajını göster
             const formContainer = document.getElementById('formContainer');
