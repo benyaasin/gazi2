@@ -350,6 +350,19 @@
             }
         }
 
+        // Form dışına tıklandığında kapatma fonksiyonu
+        document.addEventListener('click', function(event) {
+            const form = document.getElementById('formContainer');
+            const formButton = document.querySelector('#contactForm button');
+            
+            // Form açıksa ve form dışına tıklandıysa
+            if (!form.classList.contains('hidden') && 
+                !form.contains(event.target) && 
+                !formButton.contains(event.target)) {
+                form.classList.add('hidden');
+            }
+        });
+
         function submitForm(event) {
             event.preventDefault();
             const form = event.target;
