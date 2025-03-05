@@ -214,16 +214,16 @@
                 <h3 class="text-xl font-semibold mb-4">Servis Talebi</h3>
                 <form onsubmit="submitForm(event)" class="space-y-4">
                     <div>
-                        <input type="text" placeholder="Ad Soyad" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="text" name="name" placeholder="Ad Soyad" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     <div>
-                        <input type="tel" placeholder="Telefon" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="tel" name="phone" placeholder="Telefon" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     <div>
-                        <textarea placeholder="Adres" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="2" required></textarea>
+                        <textarea name="address" placeholder="Adres" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="2" required></textarea>
                     </div>
                     <div>
-                        <textarea placeholder="Servis Talebi Açıklaması" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="3" required></textarea>
+                        <textarea name="message" placeholder="Servis Talebi Açıklaması" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="3" required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-primary text-white py-2 !rounded-button hover:bg-opacity-90">
                         Gönder
@@ -321,17 +321,42 @@
 
         function submitForm(event) {
             event.preventDefault();
-            const formContainer = document.getElementById('formContainer');
-            formContainer.innerHTML = `
-                <div class="text-center py-8">
-                    <i class="ri-check-line text-primary text-4xl mb-4"></i>
-                    <p class="text-gray-700">Talebiniz başarıyla alınmıştır. En kısa sürede size dönüş yapacağız.</p>
-                </div>
-            `;
-            setTimeout(() => {
-                formContainer.classList.add('hidden');
-                formContainer.innerHTML = document.getElementById('formBackup').innerHTML;
-            }, 3000);
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            fetch('send-mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const formContainer = document.getElementById('formContainer');
+                formContainer.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="ri-check-line text-primary text-4xl mb-4"></i>
+                        <p class="text-gray-700">${data.message}</p>
+                    </div>
+                `;
+                
+                if (data.success) {
+                    form.reset();
+                }
+                
+                setTimeout(() => {
+                    formContainer.classList.add('hidden');
+                    formContainer.innerHTML = document.getElementById('formBackup').innerHTML;
+                }, 3000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const formContainer = document.getElementById('formContainer');
+                formContainer.innerHTML = `
+                    <div class="text-center py-8">
+                        <i class="ri-error-warning-line text-red-500 text-4xl mb-4"></i>
+                        <p class="text-gray-700">Bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>
+                    </div>
+                `;
+            });
         }
 
         // Service details modal functions
