@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'] ?? '';
     $message = $_POST['message'] ?? '';
 
-    $to = "emirali4634@gmail.com";
+    $to = "yasynaydyn@gmail.com";
     $subject = "Yeni Servis Talebi";
     
     $email_content = "Yeni bir servis talebi alındı:\n\n";
