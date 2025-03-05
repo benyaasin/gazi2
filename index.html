@@ -339,15 +339,6 @@
         function toggleContactForm() {
             const form = document.getElementById('formContainer');
             form.classList.toggle('hidden');
-            
-            // Form açıldığında 5 saniyelik zamanlayıcıyı başlat
-            if (!form.classList.contains('hidden')) {
-                setTimeout(() => {
-                    if (!form.classList.contains('hidden')) {
-                        form.classList.add('hidden');
-                    }
-                }, 5000); // 5 saniye
-            }
         }
 
         // Form dışına tıklandığında kapatma fonksiyonu
