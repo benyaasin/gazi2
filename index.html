@@ -287,6 +287,28 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex-1">
+                    <p class="text-sm">
+                        Bu web sitesi, size en iyi deneyimi sunmak için çerezleri kullanmaktadır. 
+                        <a href="#" class="text-primary hover:text-opacity-80">Çerez Politikamız</a> hakkında daha fazla bilgi edinebilirsiniz.
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="acceptCookies()" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90">
+                        Kabul Et
+                    </button>
+                    <button onclick="rejectCookies()" class="bg-gray-700 text-white px-6 py-2 rounded-button hover:bg-opacity-90">
+                        Reddet
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Service Details Modal -->
     <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
         <div class="bg-white rounded-lg max-w-2xl mx-4 w-full max-h-[80vh] overflow-y-auto">
@@ -462,7 +484,28 @@
 
             // Set current year for footer copyright
             document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Check cookie consent on page load
+            checkCookieConsent();
         });
+
+        // Cookie consent functions
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                document.getElementById('cookieConsent').classList.remove('hidden');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieConsent').classList.add('hidden');
+        }
     </script>
 </body>
 </html>
